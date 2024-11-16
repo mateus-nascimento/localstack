@@ -1,0 +1,22 @@
+version: '3.9'
+name: localstack-liquidaboleto
+
+services:
+  localstack:
+    image: localstack/localstack:latest
+    container_name: localstack
+    ports:
+      - "4566:4566" # Porta do LocalStack
+      - "4571:4571"
+    environment:
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      - SERVICES=sqs,sns
+      - AWS_DEFAULT_REGION=us-east-1
+    volumes:
+      - "./entrypoint.d:/etc/localstack/init/ready.d"
+    networks:
+      - localstack-net
+
+networks:
+  localstack-net:
+    driver: bridge

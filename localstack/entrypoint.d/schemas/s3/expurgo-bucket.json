@@ -1,0 +1,9 @@
+{
+  "BucketName": "expurgo-bucket",
+  "Attributes": {
+    "FifoQueue": "false",
+    "MaximumMessageSize": "1024",
+    "MessageRetentionPeriod": "86400",
+    "VisibilityTimeout": "1200"
+  }
+}
